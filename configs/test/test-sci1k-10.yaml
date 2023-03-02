@@ -1,0 +1,15 @@
+test_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: ../Data/SCI1K_TEST/HR
+  wrapper:
+    name: sr-implicit-downsampled
+    args: {scale_min: 10, scale_max: 10}
+  batch_size: 1
+eval_type: sci1k-10
+eval_bsize: 150000
+
+data_norm:
+  inp: {sub: [0.5], div: [0.5]}
+  gt: {sub: [0.5], div: [0.5]}
