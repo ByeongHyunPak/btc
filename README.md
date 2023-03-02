@@ -1,2 +1,2 @@
-# B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (BTC)
+# B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution
 
