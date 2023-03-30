@@ -1,7 +1,6 @@
 # B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution
 This repoository is the official pytorch implementation of BTC introduced by:
-
-**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (CVPR 2023)**
+### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (CVPR 2023)**]()
 
 ## Environment
 Our code is based on python 3.6, ubuntu 20.04, pytorch 1.10.0, and CUDA 11.3 (NVIDIA RTX 3090 24GB, sm86).
@@ -25,3 +24,15 @@ conda activate btc
 
 
 ## Train & Test
+* Train : `python train.py --config configs/train/[TRAIN_CONFIG] --gpu [GPU]`
+  * `[TRAIN_CONFIG]` : to define model configuration (e.g. `train-rdn+btc-3rd.yaml`).
+  * `[GPU]` : to specify the GPUS (e.g. `--gpu 0` or `--gpu 0,1`).
+  
+* Test : `python test.py --config configs/test/[TEST_CONFIG] --model save/[MODEL] --gpu [GPU]`
+  * `[TEST_CONFIG]` : to define test configuration (e.g. `test-sci1k-02.yaml` for SCI1K dataset on x2).
+  * `[MODEL]` : to define the pre-trained model (e.g. `rdn+btc-3rd/epoch_last.pth`).
+  * `[GPU]` : to specify the GPUS (e.g. `--gpu 0` or `--gpu 0,1`).
+
+## Acknowledgements
+This code is built on [LIIF](https://github.com/yinboc/liif) and [LTE](https://github.com/jaewon-lee-b/lte).
+We thank the authors for sharing their codes.
