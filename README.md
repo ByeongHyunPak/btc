@@ -20,9 +20,6 @@ conda activate btc
 3. For the additional benchmarks in Tab 6, follow **Data** instruction provided by [this repo](https://github.com/yinboc/liif).
 
 
-## Pre-trained model
-
-
 ## Train & Test
 * Train : `python train.py --config configs/train/[TRAIN_CONFIG] --gpu [GPU]`
   * `[TRAIN_CONFIG]` : to define model configuration (e.g. `train-rdn+btc-3rd.yaml`).
