@@ -1,5 +1,5 @@
 # B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution
-This repoository is the official pytorch implementation of BTC introduced by:
+This repoository is the official pytorch implementation of **BTC** introduced by:
 ### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (CVPR 2023)**]()
 
 ## Environment
