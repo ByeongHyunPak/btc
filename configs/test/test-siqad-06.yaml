@@ -2,8 +2,8 @@ test_dataset:
   dataset:
     name: paired-image-folders
     args:
-      root_path_1: ../Data/SIQAD/6x_LR
-      root_path_2: ../Data/SIQAD/HR
+      root_path_1: ../Data/SIQAD/X6/LR
+      root_path_2: ../Data/SIQAD/X6/HR
   wrapper:
     name: sr-implicit-paired
     args: {}

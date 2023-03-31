@@ -20,7 +20,7 @@ val_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ../Data/SCI1K_TEST/HR
+      root_path: ../Data/SCI1K_TEST/X2/HR
       first_k: 10
       repeat: 16
       cache: in_memory
