@@ -8,11 +8,14 @@ This repoository is the official pytorch implementation of **BTC** introduced by
 * TensorboardX
 * pyyaml, numpy, tqdm, imageio
 
-## Pretrained Models
+## Reproduce experiments
 
-Download a SCI1K pre-trained model:
+1. Download a SCI1K pre-trained model:
 [**RDN-BTC**](https://www.dropbox.com/s/fc6lzwd46ogszcw/rdn%2Bbtc-3rd.pth?dl=0)
 
+2. `bash ./scripts/test.sh [MODEL_PATH] [GPU]` for reproducing the experiments in our paper.
+ * `[MODEL_PATH]` : pre-trained model path (e.g. `rdn+btc-3rd.pth`).
+ * `[GPU]` : to specify the GPUS (e.g. `0`).
 
 ## Dataset
 
