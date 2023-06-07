@@ -2,10 +2,12 @@
 This repoository is the official pytorch implementation of **BTC** introduced by:
 ### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (CVPR 2023, Highlight)**](https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf)
 
-## Quick start
+## Pretrained Models
 
-1. Download a SCI1K pre-trained model:
+Download a SCI1K pre-trained model:
 [**RDN-BTC**](https://www.dropbox.com/s/fc6lzwd46ogszcw/rdn%2Bbtc-3rd.pth?dl=0)
+
+2. 
 
 ## Environment
 * Python 3
