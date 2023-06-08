@@ -13,7 +13,7 @@ This repoository is the official pytorch implementation of **BTC** introduced by
 1. Download a SCI1K pre-trained model:
 [**RDN-BTC**](https://www.dropbox.com/s/fc6lzwd46ogszcw/rdn%2Bbtc-3rd.pth?dl=0)
 
-2. `python demo.py --input [INPUT_PATH] --model [MODEL_PATH] --scale [SCALE] --output output.png --gpu [GPU]`
+2. Run demo code: `python demo.py --input [INPUT_PATH] --model [MODEL_PATH] --scale [SCALE] --output output.png --gpu [GPU]`
  * `[INPUT_PATH]` : input image's path (e.g. `--input input.png`).
  * `[MODEL_PATH]` : to define the pre-trained model (e.g. `save/rdn+btc-3rd.pth`).
  * `[SCALE]` : arbitrary magnification (e.g. `--scale 3` or `--scale 4.4`).
