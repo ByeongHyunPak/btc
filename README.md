@@ -14,10 +14,10 @@ This repoository is the official pytorch implementation of **BTC** introduced by
 [**RDN-BTC**](https://www.dropbox.com/s/fc6lzwd46ogszcw/rdn%2Bbtc-3rd.pth?dl=0)
 
 2. For demo, `python demo.py --input [INPUT] --model [MODEL] --scale [SCALE] --output output.png --gpu [GPU]`
-  * `[INPUT]` : input image's path (e.g. `--input input.png`).
-  * `[MODEL]` : to define the pre-trained model (e.g. `save/rdn+btc-3rd.pth`).
-  * `[SCALE]` : arbitrary magnification (e.g. `--scale 3` or `--scale 4.4`).
-  * `[GPU]` : to specify the GPUS (e.g. `--gpu 0` or `--gpu 0,1`).
+ * `[INPUT]` : input image's path (e.g. `--input input.png`).
+ * `[MODEL]` : to define the pre-trained model (e.g. `save/rdn+btc-3rd.pth`).
+ * `[SCALE]` : arbitrary magnification (e.g. `--scale 3` or `--scale 4.4`).
+ * `[GPU]` : to specify the GPUS (e.g. `--gpu 0` or `--gpu 0,1`).
 
 ## Dataset
 
