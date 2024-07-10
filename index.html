@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Textual Query-Driven Mask Transformer for Domain Generalized Segmentation.">
+  <meta name="keywords" content="tqdm, dgss">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</title>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5CBY22S2J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E5CBY22S2J');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|courier"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?=2dyH0ZQAAAAJ&user=2dyH0ZQAAAAJ">Byeonghyun Pak</a><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=GuMKuJwAAAAJ">Byeongju Woo</a><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://sunghwan.me/">Sunghwan Kim</a><sup>*</sup>
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=_5Scn8YAAAAJ">Dae-hwan Kim</a>
+              &nbsp;&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Zy7Sz5UAAAAJ">Hoseong Kim</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Agency for Defense Development (ADD)</span><br>
+            <span class="eql-cntrb"><small>* Equal Contribution</small></span><br><br>
+            <span class="publication-venue">Accepted to <strong>ECCV 2024</strong></span><br><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper  (TBD)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv  (TBD)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ByeongHyunPak/tqdm/tree/main"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (TBD)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/tqdm_supplementary_video.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Trained on GTA5, our <span class="monospace"><strong>tqdm</strong></span> generalizes well to unseen game videos with extreme domain shifts.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%" controls>
+        <source src="./static/videos/tqdm_supplementary_video.mp4"
+                type="video/mp4"> <!-- TODO: clip the intro. of this video-->
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Trained on GTA5, our <span class="monospace"><strong>tqdm</strong></span> generalizes well to unseen game videos with extreme domain shifts.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<script>
+  const video = document.getElementById('teaser');
+  const timeline = document.getElementById('videoTimeline');
+
+  // Update the input range max value once video metadata is loaded
+  video.addEventListener('loadedmetadata', () => {
+    timeline.max = video.duration;
+  });
+
+  // Update video current time when the timeline is changed
+  timeline.addEventListener('input', () => {
+    video.currentTime = timeline.value;
+  });
+
+  // Update the timeline value as the video plays
+  video.addEventListener('timeupdate', () => {
+    timeline.value = video.currentTime;
+  });
+</script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we introduce a method to tackle Domain Generalized Semantic Segmentation (DGSS) 
+            by utilizing domain-invariant semantic knowledge from text embeddings of vision-language models. 
+            We employ the text embeddings as object queries within 
+            a transformer-based segmentation framework (textual object queries). 
+            These queries are regarded as a domain-invariant basis for pixel grouping in DGSS. 
+            To leverage the power of textual object queries, we introduce a novel framework named 
+            the <strong>textual query-driven mask transformer</strong> (<span class="monospace"><strong>tqdm</strong></span>). 
+            Our <span class="monospace"><strong>tqdm</strong></span> aims to (1) generate textual object queries 
+            that maximally encode domain-invariant semantics and (2) enhance the semantic clarity of dense visual features. 
+            Additionally, we suggest three regularization losses to improve the efficacy of <span class="monospace"><strong>tqdm</strong></span>
+            by aligning between visual and textual features. 
+            By utilizing our method, the model can comprehend inherent semantic information for classes of interest, 
+            enabling it to generalize to extreme domains (e.g., sketch style). 
+            Our <span class="monospace"><strong>tqdm</strong></span> achieves 68.9 mIoU on GTA5→Cityscapes, 
+            outperforming the prior state-of-the-art method by 2.5 mIoU.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Visual Comparisons</h2>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h3 class="title is-5" style="text-align: center;">Qualitative Results on GTA5→{Cityscapes, BDD100K, Mapillary}</h3>
+
+              <div class="columns">
+
+                <div class="column">
+                  <span class="text-container">Input</span>
+                </div>
+                
+                <div class="column">
+                  <span class="text-container">Rein [Wei 2024]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container">Ours</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container">Ground Truth</span>
+                </div>
+
+              </div>
+
+              <!-- Cityscapes -->
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-input.png">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-tqdm.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
+                  </div>
+                </div>
+
+              </div>
+              
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-2-input.png">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-2-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-2-tqdm.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-2-gt.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-3-input.png">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-3-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-3-tqdm.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-3-gt.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- BDD100K -->
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/bdd-1-input.jpg">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/bdd-1-rein.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/bdd-1-tqdm.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/bdd-1-gt.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Mapillary -->
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-1-input.jpg">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-1-rein.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-1-tqdm.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-1-gt.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-3-input.jpg">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-3-rein.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-3-tqdm.jpg">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/map-3-gt.png">
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="columns is-centered" style="margin-bottom: 0pt;">
+                  <div id="input-example1" class="palette-container">
+                    <img src="./static/images/qualitative-results/pallete.png">
+                  </div>
+                </div>                
+              </div>
+
+            </div>
+          </div>
+
+          <br>
+
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+              <h3 class="title is-5" style="text-align: center;">Qualitative Results under Extreme Domain Shifts (trained on GTA5)</h3>
+
+              <div class="columns">
+
+                <div class="column">
+                  <span class="text-container">Input</span>
+                </div>
+                
+                <div class="column">
+                  <span class="text-container">Rein [Wei 2024]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container">Ours</span>
+                </div>
+
+              </div>
+
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-2-input.png">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-2-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-2-tqdm.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-3-input.jpg">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-3-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-3-tqdm.png">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="columns">
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-1-input.png">
+                  </div>
+                </div>
+                
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-1-rein.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/gpt-1-tqdm.png">
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div>
+                <div class="columns is-centered" style="margin-bottom: 10pt;">
+                  <div id="input-example1" class="palette-container">
+                    <img src="./static/images/qualitative-results/pallete.png">
+                  </div>
+                </div>                
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Comparison with DGSS methods</h2>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+
+      <div>
+        <div class="columns is-centered" style="margin-bottom: 10pt;">
+          <div id="input-example1" class="image-container" style="width: 85%;">
+            <img src="./static/images/main-table.png">
+          </div>
+        </div>
+      </div>
+
+      <!-- <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="width: 100%;">
+        <thead>
+          <tr>
+            <th rowspan="1" class="center-align" style="vertical-align: middle;">Method</th>
+            <th rowspan="1" class="center-align" style="vertical-align: middle;">Backbone</th>
+            <th>G→C</th>
+            <th>G→B</th>
+            <th>G→M</th>
+            <th>Avg.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f0f8ff;">
+            <td class="center-align">SHADE [Zhao 2023]</td>
+            <td class="center-align">MiT-B5</td>
+            <td>53.27</td>
+            <td>48.19</td>
+            <td>54.99</td>
+            <td>52.15</td>
+          </tr>
+          <tr style="background-color: #f0f8ff;">
+            <td class="center-align">IBAFormer [Sun 2023]</td>
+            <td class="center-align">MiT-B5</td>
+            <td><u>56.34</u></td>
+            <td><strong>49.76</strong></td>
+            <td><u>58.26</u></td>
+            <td><u>54.79</u></td>
+          </tr>
+          <tr style="background-color: #f0f8ff;">
+            <td class="center-align">VLTSeg [Hümmer 2023] 📎</td>
+            <td class="center-align">ViT-B</td>
+            <td>47.50</td>
+            <td>45.70</td>
+            <td>54.30</td>
+            <td>49.17</td>
+          </tr>
+          <tr style="background-color: #bbdcf9;">
+            <td class="center-align"><span class="monospace"><strong>tqdm</strong></span> (ours) 📎</td>
+            <td class="center-align">ViT-B</td>
+            <td><strong>57.50</strong></td>
+            <td>47.66</td>
+            <td><strong>59.76</strong></td>
+            <td><strong>54.97</strong></td>
+          </tr>
+          <tr style="background-color: #faebd7;">
+            <td class="center-align">VLTSeg [Hümmer 2023] 📎</td>
+            <td class="center-align">EVA02-L</td>
+            <td>65.60</td>
+            <td>58.40</td>
+            <td><u>66.50</u></td>
+            <td>63.50</td>
+          </tr>
+          <tr style="background-color: #faebd7;">
+            <td class="center-align">Rein [Wei 2024] 
+              <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image">
+            </td>
+            <td class="center-align">EVA02-L</td>
+            <td>65.30</td>
+            <td><strong>60.50</strong></td>
+            <td>64.90</td>
+            <td>63.60</td>
+          </tr>
+          <tr style="background-color: #faebd7;">
+            <td class="center-align">Rein [Wei 2024] 
+              <img src="static/images/emoji/dino_emoji.png" alt="Paper Clip" class="icon-image">
+            </td>
+            <td class="center-align">ViT-L</td>
+            <td><u>66.40</u></td>
+            <td>60.40</td>
+            <td>66.10</td>
+            <td>64.30</td>
+          </tr>
+          <tr style="background-color: #f8d9b1;">
+            <td class="center-align"><span class="monospace"><strong>tqdm</strong></span> (ours) 
+              <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image">
+            </td>
+            <td class="center-align">EVA02-L</td>
+            <td><strong>68.88</strong></td>
+            <td>59.18</td>
+            <td><strong>70.10</strong></td>
+            <td><strong>66.05</td>
+          </tr>
+        </tbody>
+      </table> -->
+      
+      <h2 class="subtitle" style="text-align: justify; width: 90%; margin-bottom: 5pt;">
+        <img src="static/images/emoji/clip_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">,
+        <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">, and
+        <img src="static/images/emoji/dino_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">
+        denote initialization with CLIP, EVA02-CLIP, and DINOv2 pre-training, respectively.
+        The best and second-best results are <strong>highlighted</strong> and <u>underlined</u>, correspondingly. 
+        The results denoted with † are both trained and tested
+        with an input resolution of 1024x1024.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Domain-Invariant Semantic Knowledge</h2>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+
+      <div>
+        <div class="columns is-centered" style="margin-bottom: 10pt;">
+          <div id="input-example1" class="image-container">
+            <img src="./static/images/semantic-knowledge.png">
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="subtitle" style="text-align: justify; width: 90%;">
+        The text embeddings of the targeted classes (<I>i.e.</I>, building, bicycle, and traffic sign) from pre-trained vision-language models (<I>e.g.</I>, CLIP)
+        consistently show strong activation in the corresponding regions of images across various domains. 
+        We leverage this domain-invariant semantic knowledge from the text embeddings of vision-language models.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Overall Pipeline of <span class="monospace"><strong>tqdm</strong></span></h2>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+
+      <div>
+        <div class="columns is-centered" style="margin-bottom: 20pt;">
+          <div id="input-example1" class="image-container" style="width: 95%;">
+            <img src="./static/images/overall-pipeline.png">
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="subtitle" style="text-align: left; width: 95%;">
+        <!-- <strong>Overall pipeline of our <span class="monospace"><strong>tqdm</strong></span></strong><br><br> -->
+        <strong>Step 1.</strong> We generate initial textual object queries \( \textbf{q}^0_\textbf{t} \) from the \( K \) class text embeddings \( \{\textbf{t}_k\}_{k=1}^K \).<br><br>
+        <strong>Step 2.</strong> To improve the segmentation capabilities of these queries, we incorporate text-to-pixel attention within the pixel decoder. 
+        This process enhances the semantic clarity of pixel features, while reconstructing high-resolution per-pixel embeddings \( \textbf{Z} \).<br><br>
+        <strong>Step 3.</strong> The transformer decoder refines these queries for the final prediction. Each prediction output is then assigned to its corresponding ground truth (GT) through fixed matching, 
+        ensuring that each query consistently represents the semantic information of one class.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@inproceedings{pak2024textual,
+  author    = {Pak, Byeonghyun and Woo, Byeongju and Kim, Sunghwan and Kim, Dae-hwan and Kim, Hoseong},
+  title     = {Textual Query-Driven Mask Transformer for Domain Generalized Segmentation},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2024},
+}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/script.js"></script>
+
+<script>
+    new BeforeAfter({
+        id: '#example1'
+    });
+    new BeforeAfter({
+        id: '#example2'
+    });
+    new BeforeAfter({
+        id: '#example4'
+    });
+    new BeforeAfter({
+        id: '#example5'
+    });
+
+</script>
+
+</body>
+</html>
