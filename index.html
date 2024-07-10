@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Textual Query-Driven Mask Transformer for Domain Generalized Segmentation.">
-  <meta name="keywords" content="tqdm, dgss">
+        content="B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution">
+  <meta name="keywords" content="btc, super-resolution">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</title>
+  <title>B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution</title>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E5CBY22S2J"></script>
@@ -14,7 +14,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E5CBY22S2J');
   </script>
 
@@ -45,44 +44,35 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Textual Query-Driven Mask Transformer for Domain Generalized Segmentation</h1>
+          <h1 class="title is-1 publication-title">B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://scholar.google.com/citations?=2dyH0ZQAAAAJ&user=2dyH0ZQAAAAJ">Byeonghyun Pak</a><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=GuMKuJwAAAAJ">Byeongju Woo</a><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
+              <a href="https://scholar.google.com/citations?user=O91nuqIAAAAJ">Jaewon Lee</a><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
             <span class="author-block">
-              <a href="https://sunghwan.me/">Sunghwan Kim</a><sup>*</sup>
-            </span>
-            <br>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=_5Scn8YAAAAJ">Dae-hwan Kim</a>
-              &nbsp;&nbsp;&nbsp;
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=Zy7Sz5UAAAAJ">Hoseong Kim</a>
-            </span>
+              <a href="https://scholar.google.com/citations?user=aLYNnyoAAAAJ">Kyong Hwan Jin</a></span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Agency for Defense Development (ADD)</span><br>
+            <span class="author-block">Daegu Gyeongbuk Institute of Science and Technology (DGIST)</span><br>
             <span class="eql-cntrb"><small>* Equal Contribution</small></span><br><br>
-            <span class="publication-venue">Accepted to <strong>ECCV 2024</strong></span><br><br>
+            <span class="publication-venue"><strong>CVPR 2023</strong></span> <strong style="color:red">(Highlight)</strong><br><br>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/"
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper  (TBD)</span>
+                  <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://arxiv.org/abs/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -90,7 +80,7 @@
                   </span>
                   <span>arXiv  (TBD)</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Video Link. -->
               <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
@@ -103,12 +93,12 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/ByeongHyunPak/tqdm/tree/main"
+                <a href="https://github.com/ByeongHyunPak/btc"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (TBD)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -142,19 +132,19 @@
   </div>
 </section> -->
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%" controls>
         <source src="./static/videos/tqdm_supplementary_video.mp4"
-                type="video/mp4"> <!-- TODO: clip the intro. of this video-->
+                type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         Trained on GTA5, our <span class="monospace"><strong>tqdm</strong></span> generalizes well to unseen game videos with extreme domain shifts.
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 
 <script>
   const video = document.getElementById('teaser');
@@ -184,21 +174,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we introduce a method to tackle Domain Generalized Semantic Segmentation (DGSS) 
-            by utilizing domain-invariant semantic knowledge from text embeddings of vision-language models. 
-            We employ the text embeddings as object queries within 
-            a transformer-based segmentation framework (textual object queries). 
-            These queries are regarded as a domain-invariant basis for pixel grouping in DGSS. 
-            To leverage the power of textual object queries, we introduce a novel framework named 
-            the <strong>textual query-driven mask transformer</strong> (<span class="monospace"><strong>tqdm</strong></span>). 
-            Our <span class="monospace"><strong>tqdm</strong></span> aims to (1) generate textual object queries 
-            that maximally encode domain-invariant semantics and (2) enhance the semantic clarity of dense visual features. 
-            Additionally, we suggest three regularization losses to improve the efficacy of <span class="monospace"><strong>tqdm</strong></span>
-            by aligning between visual and textual features. 
-            By utilizing our method, the model can comprehend inherent semantic information for classes of interest, 
-            enabling it to generalize to extreme domains (e.g., sketch style). 
-            Our <span class="monospace"><strong>tqdm</strong></span> achieves 68.9 mIoU on GTA5→Cityscapes, 
-            outperforming the prior state-of-the-art method by 2.5 mIoU.
+            Screen content images (SCIs) include many informative
+            components, e.g., texts and graphics. Such content creates
+            sharp edges or homogeneous areas, making a pixel distribution of SCI different from the natural image. Therefore, we
+            need to properly handle the edges and textures to minimize
+            information distortion of the contents when a display device's resolution differs from SCIs. To achieve this goal, we
+            propose an implicit neural representation using B-splines
+            for screen content image super-resolution (SCI SR) with arbitrary scales. Our method extracts scaling, translating,
+            and smoothing parameters of B-splines. The followed multilayer perceptron (MLP) uses the estimated B-splines to recover high-resolution SCI. Our network outperforms both
+            a transformer-based reconstruction and an implicit Fourier
+            representation method in almost upscaling factor, thanks to
+            the positive constraint and compact support of the B-spline
+            basis. Moreover, our SR results are recognized as correct text letters with the highest confidence by a pre-trained
+            scene text recognition network.
           </p>
         </div>
       </div>
@@ -206,6 +194,37 @@
     <!--/ Abstract. -->
   </div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Motivation</h2>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+
+      <div>
+        <div class="columns is-centered" style="margin-bottom: 10pt;">
+          <div id="input-example1" class="image-container">
+            <img src="./static/images/sci_vs_ni.png" style="width: 90%;">
+          </div>
+        </div>
+      </div>
+
+      <span class="subtitle" style="text-align: center;">
+        <strong>Comparison on naturalness value distribution between SCIs and natural images (NIs).</strong><br>
+      </span>
+      
+      <h2 class="subtitle" style="text-align: justify; width: 90%;">
+        The informative components of SCIs, such as text and graphics, create sharp edges and homogeneous areas, 
+        resulting in a pixel distribution distinct from that of NIs (bottom row). 
+        These differences can cause previous Super-Resolution (SR) methods (e.g., LTE) to risk under- or overshooting 
+        at the discontinuities in SCIs. Therefore, it is crucial to properly handle the edges and textures of 
+        SCIs to minimize information distortion when reconstructing high-resolution SCIs.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -526,7 +545,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3" style="text-align: center;">Comparison with DGSS methods</h2>
+    <h2 class="title is-3" style="text-align: center;">Comparison with SR methods</h2>
     <div class="columns is-centered">
       <!-- Visual Effects. -->
 
@@ -537,124 +556,14 @@
           </div>
         </div>
       </div>
-
-      <!-- <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="width: 100%;">
-        <thead>
-          <tr>
-            <th rowspan="1" class="center-align" style="vertical-align: middle;">Method</th>
-            <th rowspan="1" class="center-align" style="vertical-align: middle;">Backbone</th>
-            <th>G→C</th>
-            <th>G→B</th>
-            <th>G→M</th>
-            <th>Avg.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background-color: #f0f8ff;">
-            <td class="center-align">SHADE [Zhao 2023]</td>
-            <td class="center-align">MiT-B5</td>
-            <td>53.27</td>
-            <td>48.19</td>
-            <td>54.99</td>
-            <td>52.15</td>
-          </tr>
-          <tr style="background-color: #f0f8ff;">
-            <td class="center-align">IBAFormer [Sun 2023]</td>
-            <td class="center-align">MiT-B5</td>
-            <td><u>56.34</u></td>
-            <td><strong>49.76</strong></td>
-            <td><u>58.26</u></td>
-            <td><u>54.79</u></td>
-          </tr>
-          <tr style="background-color: #f0f8ff;">
-            <td class="center-align">VLTSeg [Hümmer 2023] 📎</td>
-            <td class="center-align">ViT-B</td>
-            <td>47.50</td>
-            <td>45.70</td>
-            <td>54.30</td>
-            <td>49.17</td>
-          </tr>
-          <tr style="background-color: #bbdcf9;">
-            <td class="center-align"><span class="monospace"><strong>tqdm</strong></span> (ours) 📎</td>
-            <td class="center-align">ViT-B</td>
-            <td><strong>57.50</strong></td>
-            <td>47.66</td>
-            <td><strong>59.76</strong></td>
-            <td><strong>54.97</strong></td>
-          </tr>
-          <tr style="background-color: #faebd7;">
-            <td class="center-align">VLTSeg [Hümmer 2023] 📎</td>
-            <td class="center-align">EVA02-L</td>
-            <td>65.60</td>
-            <td>58.40</td>
-            <td><u>66.50</u></td>
-            <td>63.50</td>
-          </tr>
-          <tr style="background-color: #faebd7;">
-            <td class="center-align">Rein [Wei 2024] 
-              <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image">
-            </td>
-            <td class="center-align">EVA02-L</td>
-            <td>65.30</td>
-            <td><strong>60.50</strong></td>
-            <td>64.90</td>
-            <td>63.60</td>
-          </tr>
-          <tr style="background-color: #faebd7;">
-            <td class="center-align">Rein [Wei 2024] 
-              <img src="static/images/emoji/dino_emoji.png" alt="Paper Clip" class="icon-image">
-            </td>
-            <td class="center-align">ViT-L</td>
-            <td><u>66.40</u></td>
-            <td>60.40</td>
-            <td>66.10</td>
-            <td>64.30</td>
-          </tr>
-          <tr style="background-color: #f8d9b1;">
-            <td class="center-align"><span class="monospace"><strong>tqdm</strong></span> (ours) 
-              <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image">
-            </td>
-            <td class="center-align">EVA02-L</td>
-            <td><strong>68.88</strong></td>
-            <td>59.18</td>
-            <td><strong>70.10</strong></td>
-            <td><strong>66.05</td>
-          </tr>
-        </tbody>
-      </table> -->
       
-      <h2 class="subtitle" style="text-align: justify; width: 90%; margin-bottom: 5pt;">
-        <img src="static/images/emoji/clip_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">,
-        <img src="static/images/emoji/eva_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">, and
-        <img src="static/images/emoji/dino_emoji.png" alt="Paper Clip" class="icon-image" style="width: 20px; height: 20px;">
-        denote initialization with CLIP, EVA02-CLIP, and DINOv2 pre-training, respectively.
-        The best and second-best results are <strong>highlighted</strong> and <u>underlined</u>, correspondingly. 
-        The results denoted with † are both trained and tested
-        with an input resolution of 1024x1024.
-      </h2>
-
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3" style="text-align: center;">Domain-Invariant Semantic Knowledge</h2>
-    <div class="columns is-centered">
-      <!-- Visual Effects. -->
-
-      <div>
-        <div class="columns is-centered" style="margin-bottom: 10pt;">
-          <div id="input-example1" class="image-container">
-            <img src="./static/images/semantic-knowledge.png">
-          </div>
-        </div>
-      </div>
-      
-      <h2 class="subtitle" style="text-align: justify; width: 90%;">
-        The text embeddings of the targeted classes (<I>i.e.</I>, building, bicycle, and traffic sign) from pre-trained vision-language models (<I>e.g.</I>, CLIP)
-        consistently show strong activation in the corresponding regions of images across various domains. 
-        We leverage this domain-invariant semantic knowledge from the text embeddings of vision-language models.
+      <h2 class="subtitle" style="text-align: justify; width: 85%; margin-bottom: 5pt;">
+        <strong>Quantitative comparison on SCI1K test set, SCID, and SIQAD (PSNR (dB)).</strong> 
+        All methods are trained on SCI1K train set.
+        The best and second results are in <span style="color: red;">red</span> and <span style="color: blue;">blue</span>, respectively. 
+        RDN trains different models for each scale. MetaSR, LIIF,
+        ITSRN, LTE, and BTC use one model for all scales, and the five models utilize RDN as an encoder. The number of training
+        parameters of RDN is estimated without its upsampling layer.
       </h2>
 
     </div>
