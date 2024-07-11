@@ -209,16 +209,19 @@
         </div>
       </div>
 
-      <span class="subtitle" style="text-align: center;">
-        <strong>Comparison on naturalness value distribution between SCIs and natural images (NIs).</strong><br>
+      <span class="subtitle" style="text-align: center; width: 87%;">
+        <strong>Comparison on naturalness value distribution between SCIs and natural images (NIs).</strong>
+        <p style="text-align: justify; font-size: 12pt;">
+          <br>  
+          The informative components of SCIs, such as text and graphics, create sharp edges and homogeneous areas, 
+          resulting in a pixel distribution distinct from that of NIs (bottom row). 
+          These differences can cause previous Super-Resolution (SR) methods (e.g., LTE) to risk under- or overshooting 
+          at the discontinuities in SCIs. Therefore, it is crucial to properly handle the edges and textures of 
+          SCIs to minimize information distortion and artifacts when reconstructing high-resolution SCIs.
+          To address this challenge, we propose B-spline Texture Coefficients estimator (BTC).
+        </p>
       </span>
-      
-      <h2 class="subtitle" style="text-align: justify; width: 90%;">
-        The informative components of SCIs, such as text and graphics, create sharp edges and homogeneous areas, 
-        resulting in a pixel distribution distinct from that of NIs (bottom row). 
-        These differences can cause previous Super-Resolution (SR) methods (e.g., LTE) to risk under- or overshooting 
-        at the discontinuities in SCIs. Therefore, it is crucial to properly handle the edges and textures of 
-        SCIs to minimize information distortion when reconstructing high-resolution SCIs.
+        
       </h2>
 
     </div>
@@ -228,36 +231,48 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3" style="text-align: center;">Visual Comparisons</h2>
+    <h2 class="title is-3" style="text-align: center;">Qualitative Comparison</h2>
     <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <div class="columns is-centered">
             <div class="column is-full-width">
-              <h3 class="title is-5" style="text-align: center;">Qualitative Results on GTA5→{Cityscapes, BDD100K, Mapillary}</h3>
-
+              <h3 class="title is-5" style="text-align: center;">for integer number scales (\(\times\)3, \(\times\)4, \(\times\)5, and \(\times\)7)</h3>
+              <p style="text-align: center;">We report the scene text recognition (STR) results of the red-highlighted boxes using a pre-trained STR network.</p>
+              
               <div class="columns">
 
                 <div class="column">
-                  <span class="text-container">Input</span>
+                  <span class="text-container" style="text-align: center;">Input</span>
                 </div>
                 
                 <div class="column">
-                  <span class="text-container">Rein [Wei 2024]</span>
+                  <span class="text-container" style="text-align: center;">MetaSR<br>[Hu 2019]</span>
                 </div>
 
                 <div class="column">
-                  <span class="text-container">Ours</span>
+                  <span class="text-container" style="text-align: center;">LIIF<br>[Chen 2021]</span>
                 </div>
 
                 <div class="column">
-                  <span class="text-container">Ground Truth</span>
+                  <span class="text-container" style="text-align: center;">ITSRN<br>[Yang 2021]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">LTE<br>[Lee 2022]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">BTC<br>(ours)</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">GT</span>
                 </div>
 
               </div>
 
-              <!-- Cityscapes -->
               <div class="columns">
 
                 <div class="column">
@@ -284,178 +299,61 @@
                   </div>
                 </div>
 
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
+                  </div>
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
+                  </div>
+                </div>
+
               </div>
               
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-2-input.png">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-2-rein.png">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-2-tqdm.png">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-2-gt.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-3-input.png">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-3-rein.png">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-3-tqdm.png">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/city-3-gt.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- BDD100K -->
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/bdd-1-input.jpg">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/bdd-1-rein.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/bdd-1-tqdm.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/bdd-1-gt.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Mapillary -->
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-1-input.jpg">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-1-rein.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-1-tqdm.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-1-gt.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-3-input.jpg">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-3-rein.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-3-tqdm.jpg">
-                  </div>
-                </div>
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/map-3-gt.png">
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="columns is-centered" style="margin-bottom: 0pt;">
-                  <div id="input-example1" class="palette-container">
-                    <img src="./static/images/qualitative-results/pallete.png">
-                  </div>
-                </div>                
-              </div>
 
             </div>
           </div>
 
           <br>
+          <br>
 
           <div class="columns is-centered">
             <div class="column is-full-width">
-              <h3 class="title is-5" style="text-align: center;">Qualitative Results under Extreme Domain Shifts (trained on GTA5)</h3>
+              <h3 class="title is-5" style="text-align: center;">for fraction number scales (\(\times\)1.49 and \(\times\)6.25)</h3>
 
               <div class="columns">
-
-                <div class="column">
-                  <span class="text-container">Input</span>
-                </div>
                 
                 <div class="column">
-                  <span class="text-container">Rein [Wei 2024]</span>
+                  <span class="text-container" style="text-align: center;">MetaSR<br>[Hu 2019]</span>
                 </div>
 
                 <div class="column">
-                  <span class="text-container">Ours</span>
+                  <span class="text-container" style="text-align: center;">LIIF<br>[Chen 2021]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">ITSRN<br>[Yang 2021]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">LTE<br>[Lee 2022]</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">BTC<br>(ours)</span>
+                </div>
+
+                <div class="column">
+                  <span class="text-container" style="text-align: center;">GT</span>
                 </div>
 
               </div>
@@ -464,75 +362,40 @@
 
                 <div class="column">
                   <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-2-input.png">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-2-rein.png">
+                    <img src="./static/images/qualitative-results/city-1-rein.png">
                   </div>
                 </div>
 
                 <div class="column">
                   <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-2-tqdm.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-3-input.jpg">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-3-rein.png">
+                    <img src="./static/images/qualitative-results/city-1-tqdm.png">
                   </div>
                 </div>
 
                 <div class="column">
                   <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-3-tqdm.png">
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="columns">
-
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-1-input.png">
-                  </div>
-                </div>
-                
-                <div class="column">
-                  <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-1-rein.png">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
                   </div>
                 </div>
 
                 <div class="column">
                   <div id="input-example1" class="image-container">
-                    <img src="./static/images/qualitative-results/gpt-1-tqdm.png">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
                   </div>
                 </div>
 
-              </div>
-
-
-              <div>
-                <div class="columns is-centered" style="margin-bottom: 10pt;">
-                  <div id="input-example1" class="palette-container">
-                    <img src="./static/images/qualitative-results/pallete.png">
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
                   </div>
-                </div>                
+                </div>
+
+                <div class="column">
+                  <div id="input-example1" class="image-container">
+                    <img src="./static/images/qualitative-results/city-1-gt.png">
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -545,7 +408,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3" style="text-align: center;">Comparison with SR methods</h2>
+    <h2 class="title is-3" style="text-align: center;">Quantitative Comparison</h2>
     <div class="columns is-centered">
       <!-- Visual Effects. -->
 
@@ -557,7 +420,7 @@
         </div>
       </div>
       
-      <h2 class="subtitle" style="text-align: justify; width: 85%; margin-bottom: 5pt;">
+      <h2 class="subtitle" style="text-align: justify; width: 85%; margin-bottom: 5pt; font-size: 12pt;">
         <strong>Quantitative comparison on SCI1K test set, SCID, and SIQAD (PSNR (dB)).</strong> 
         All methods are trained on SCI1K train set.
         The best and second results are in <span style="color: red;">red</span> and <span style="color: blue;">blue</span>, respectively. 
@@ -572,25 +435,23 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3" style="text-align: center;">Overall Pipeline of <span class="monospace"><strong>tqdm</strong></span></h2>
+    <h2 class="title is-3" style="text-align: center;">Overall Pipeline of BTC</h2>
     <div class="columns is-centered">
       <!-- Visual Effects. -->
 
       <div>
         <div class="columns is-centered" style="margin-bottom: 20pt;">
-          <div id="input-example1" class="image-container" style="width: 95%;">
+          <div id="input-example1" class="image-container" style="width: 90%;">
             <img src="./static/images/overall-pipeline.png">
           </div>
         </div>
       </div>
       
-      <h2 class="subtitle" style="text-align: left; width: 95%;">
+      <h2 class="subtitle" style="text-align: justify; width: 85%; font-size: 12pt;">
         <!-- <strong>Overall pipeline of our <span class="monospace"><strong>tqdm</strong></span></strong><br><br> -->
-        <strong>Step 1.</strong> We generate initial textual object queries \( \textbf{q}^0_\textbf{t} \) from the \( K \) class text embeddings \( \{\textbf{t}_k\}_{k=1}^K \).<br><br>
-        <strong>Step 2.</strong> To improve the segmentation capabilities of these queries, we incorporate text-to-pixel attention within the pixel decoder. 
-        This process enhances the semantic clarity of pixel features, while reconstructing high-resolution per-pixel embeddings \( \textbf{Z} \).<br><br>
-        <strong>Step 3.</strong> The transformer decoder refines these queries for the final prediction. Each prediction output is then assigned to its corresponding ground truth (GT) through fixed matching, 
-        ensuring that each query consistently represents the semantic information of one class.
+        <strong>Step 1.</strong> We estimate the scaling (coef), translating (knot), and smoothing (dilation) parameters of the B-splines from the low-resoltuion (LR) input image.<br><br>
+        <strong>Step 2.</strong> We utilize B-spline representation by using the estimated B-spline feature vectors that are closest to the query point in the high-resolution (HR) coordinate. <br><br>
+        <strong>Step 3.</strong> The subsequent implicit neural representation (INR) decoder infers the RGB values of the query point using the B-spline represenation results.
       </h2>
 
     </div>
@@ -601,11 +462,12 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@inproceedings{pak2024textual,
-  author    = {Pak, Byeonghyun and Woo, Byeongju and Kim, Sunghwan and Kim, Dae-hwan and Kim, Hoseong},
+@inproceedings{pak2023b,
   title     = {Textual Query-Driven Mask Transformer for Domain Generalized Segmentation},
-  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
-  year      = {2024},
+  author    = {Pak, Byeonghyun and Lee, Jaewon and Jin, Kyong Hwan},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages     = {10062--10071},
+  year      = {2023}
 }
     </code></pre>
   </div>
