@@ -2,7 +2,7 @@ train_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ../Data/SCI1K_TRAIN/HR
+      root_path: ../Data/SCI1K-Train/HR
       repeat: 20
       cache: in_memory
   wrapper:
@@ -20,7 +20,7 @@ val_dataset:
   dataset:
     name: image-folder
     args:
-      root_path: ../Data/SCI1K_TEST/X2/HR
+      root_path: ../Data/SCI1K-Test/X2/HR
       first_k: 10
       repeat: 16
       cache: in_memory
