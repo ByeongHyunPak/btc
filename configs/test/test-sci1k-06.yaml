@@ -1,11 +1,10 @@
 test_dataset:
   dataset:
-    name: paired-image-folders
+    name: image-folder
     args:
-      root_path_1: ../Data/SCI1K_TEST/X6/LR
-      root_path_2: ../Data/SCI1K_TEST/X6/HR
+      root_path: ../Data/SCI1K-Test/X6/HR
   wrapper:
-    name: sr-implicit-paired
+    name: sr-implicit-downsampled
     args: {scale_min: 6, scale_max: 6}
   batch_size: 1
 eval_type: sci1k-6
