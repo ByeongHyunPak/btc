@@ -1,6 +1,11 @@
-# B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution
-This repoository is the official pytorch implementation of **BTC** introduced by:
-### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (CVPR 2023, Highlight)**](https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf)
+# [CVPR 2023] B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (Highlight)
+### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution**](https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf)
+>[Byeonghyun Pak](https://sohyun-l.github.io)\*, [Jaewon Lee](https://scholar.google.com/citations?user=O91nuqIAAAAJ)\*, [Kyong Hwan Jin](https://scholar.google.com/citations?user=aLYNnyoAAAAJ)\
+>Daegu Gyeongbuk Institute of Science and Technology (DGIST)\
+>CVPR 2023, Highlight
+
+#### [[`Project Page`](https://byeonghyunpak.github.io/btc/)] [[`Paper`](https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf)]
+
 
 ## Environment
 * Python 3
@@ -11,7 +16,7 @@ This repoository is the official pytorch implementation of **BTC** introduced by
 ## Demo
 
 1. Download a SCI1K pre-trained model:
-[**RDN-BTC**](https://www.dropbox.com/s/fc6lzwd46ogszcw/rdn%2Bbtc-3rd.pth?dl=0)
+[**RDN-BTC**](https://www.dropbox.com/scl/fi/et68vpowdoau4iqvg34n8/rdn-btc-3rd.pth?rlkey=vk7auq6dj0xdi7t652rahipwm&st=kec3iwly&dl=0)
 
 2. For demo, `python demo.py --input [INPUT] --model [MODEL] --scale [SCALE] --output output.png --gpu [GPU]`
  * `[INPUT]` : input image's path (e.g. `--input input.png`).
