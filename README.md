@@ -1,6 +1,6 @@
 # [CVPR 2023] B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution (Highlight)
 ### [**B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution**](https://openaccess.thecvf.com/content/CVPR2023/papers/Pak_B-Spline_Texture_Coefficients_Estimator_for_Screen_Content_Image_Super-Resolution_CVPR_2023_paper.pdf)
->[Byeonghyun Pak](https://sohyun-l.github.io)\*, [Jaewon Lee](https://scholar.google.com/citations?user=O91nuqIAAAAJ)\*, [Kyong Hwan Jin](https://scholar.google.com/citations?user=aLYNnyoAAAAJ)\
+>[Byeonghyun Pak](https://byeonghyunpak.github.io)\*, [Jaewon Lee](https://scholar.google.com/citations?user=O91nuqIAAAAJ)\*, [Kyong Hwan Jin](https://scholar.google.com/citations?user=aLYNnyoAAAAJ)\
 >Daegu Gyeongbuk Institute of Science and Technology (DGIST)\
 >CVPR 2023, Highlight
 
