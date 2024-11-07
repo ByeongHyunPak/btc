@@ -53,7 +53,7 @@ python test.py --config configs/test/[TEST_CONFIG] --model save/[MODEL] --gpu [G
 If you find our code helpful, please cite our paper:
 ```bibtex
 @inproceedings{pak2023b,
-  title     = {Textual Query-Driven Mask Transformer for Domain Generalized Segmentation},
+  title     = {B-spline Texture Coefficients Estimator for Screen Content Image Super-Resolution},
   author    = {Pak, Byeonghyun and Lee, Jaewon and Jin, Kyong Hwan},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   pages     = {10062--10071},
